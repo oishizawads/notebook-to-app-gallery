@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="RAG Eval Dashboard app screenshot: ranked retrieved passages with recall@k metrics for TF-IDF vs BM25">
+  <rect width="1200" height="750" fill="#f1f5f9"/>
+  <rect x="40" y="40" width="1120" height="670" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="40" y="40" width="1120" height="46" rx="14" fill="#f8fafc"/>
+  <circle cx="74" cy="63" r="6" fill="#fca5a5"/>
+  <circle cx="96" cy="63" r="6" fill="#fcd34d"/>
+  <circle cx="118" cy="63" r="6" fill="#86efac"/>
+  <rect x="160" y="53" width="320" height="20" rx="10" fill="#e2e8f0" opacity="0.6"/>
+  <text x="600" y="69" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="15" fill="#64748b">RAG Eval Dashboard</text>
+
+  <!-- sidebar -->
+  <rect x="40" y="86" width="240" height="624" fill="#fbfdff"/>
+  <line x1="280" y1="86" x2="280" y2="710" stroke="#e2e8f0"/>
+  <text x="72" y="128" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" font-weight="700" fill="#0f172a">Question set</text>
+  <rect x="72" y="142" width="176" height="32" rx="6" fill="#e0ecff"/>
+  <text x="84" y="163" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#2563eb">FAQ-Q01 · billing</text>
+  <rect x="72" y="180" width="176" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="84" y="201" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#0f172a">FAQ-Q02 · password</text>
+  <rect x="72" y="218" width="176" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="84" y="239" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#0f172a">FAQ-Q03 · export</text>
+  <text x="72" y="296" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" font-weight="700" fill="#0f172a">Retrieval</text>
+  <rect x="72" y="310" width="176" height="32" rx="6" fill="#eef2f7"/>
+  <text x="84" y="331" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#0f172a">TF-IDF</text>
+  <rect x="72" y="348" width="176" height="32" rx="6" fill="#2563eb"/>
+  <text x="84" y="369" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="600" fill="#ffffff">BM25 (selected)</text>
+  <text x="72" y="412" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#64748b">Top-K</text>
+  <rect x="72" y="420" width="176" height="10" rx="5" fill="#e2e8f0"/>
+  <rect x="72" y="420" width="70" height="10" rx="5" fill="#0891b2"/>
+  <text x="72" y="456" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#64748b">K = 5</text>
+
+  <!-- query bar -->
+  <text x="312" y="128" font-family="ui-sans-serif,system-ui,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Query &amp; retrieved evidence</text>
+  <rect x="312" y="146" width="820" height="44" rx="10" fill="#eef2f7"/>
+  <text x="330" y="173" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" fill="#0f172a">“How do I cancel my subscription before the next billing date?”</text>
+
+  <!-- ranked results -->
+  <rect x="312" y="206" width="820" height="58" rx="10" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <circle cx="338" cy="235" r="14" fill="#16a34a"/>
+  <text x="338" y="240" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#ffffff">1</text>
+  <text x="366" y="232" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" fill="#0f172a">FAQ-12 · Cancel anytime from Settings → Billing → Cancel plan.</text>
+  <text x="366" y="252" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">BM25 score 18.4 · ✓ relevant (ground truth)</text>
+
+  <rect x="312" y="274" width="820" height="58" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <circle cx="338" cy="303" r="14" fill="#0891b2"/>
+  <text x="338" y="308" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#ffffff">2</text>
+  <text x="366" y="300" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" fill="#0f172a">FAQ-08 · Billing cycles renew automatically unless canceled.</text>
+  <text x="366" y="320" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">BM25 score 12.1</text>
+
+  <rect x="312" y="342" width="820" height="58" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <circle cx="338" cy="371" r="14" fill="#0891b2"/>
+  <text x="338" y="376" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#ffffff">3</text>
+  <text x="366" y="368" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" fill="#0f172a">FAQ-21 · Refunds are issued within 14 days of payment.</text>
+  <text x="366" y="388" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#64748b">BM25 score 9.7</text>
+
+  <rect x="312" y="410" width="820" height="58" rx="10" fill="#fef2f2" stroke="#fecaca"/>
+  <circle cx="338" cy="439" r="14" fill="#94a3b8"/>
+  <text x="338" y="444" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700" fill="#ffffff">4</text>
+  <text x="366" y="436" font-family="ui-sans-serif,system-ui,sans-serif" font-size="14" fill="#64748b">FAQ-03 · How to update the team profile picture.</text>
+  <text x="366" y="456" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#94a3b8">BM25 score 6.2 · off-topic</text>
+
+  <!-- metrics -->
+  <text x="312" y="510" font-family="ui-sans-serif,system-ui,sans-serif" font-size="16" font-weight="700" fill="#0f172a">Metrics</text>
+  <rect x="312" y="524" width="262" height="110" rx="10" fill="#eef2f7"/>
+  <text x="330" y="552" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#64748b">Recall@5 (BM25)</text>
+  <text x="330" y="600" font-family="ui-sans-serif,system-ui,sans-serif" font-size="34" font-weight="700" fill="#0f172a">0.83</text>
+  <rect x="330" y="612" width="226" height="10" rx="5" fill="#ffffff"/>
+  <rect x="330" y="612" width="188" height="10" rx="5" fill="#16a34a"/>
+
+  <rect x="591" y="524" width="262" height="110" rx="10" fill="#f1f5f9"/>
+  <text x="609" y="552" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#64748b">Recall@5 (TF-IDF)</text>
+  <text x="609" y="600" font-family="ui-sans-serif,system-ui,sans-serif" font-size="34" font-weight="700" fill="#64748b">0.67</text>
+  <rect x="609" y="612" width="226" height="10" rx="5" fill="#ffffff"/>
+  <rect x="609" y="612" width="152" height="10" rx="5" fill="#94a3b8"/>
+
+  <rect x="870" y="524" width="262" height="110" rx="10" fill="#e0ecff"/>
+  <text x="888" y="552" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#2563eb">Rank swap vs TF-IDF</text>
+  <text x="888" y="600" font-family="ui-sans-serif,system-ui,sans-serif" font-size="34" font-weight="700" fill="#2563eb">+2</text>
+  <text x="888" y="622" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#2563eb">ground-truth moved up</text>
+
+  <rect x="312" y="650" width="820" height="46" rx="10" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="330" y="678" font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#1e40af">Synthetic FAQ corpus. Numbers illustrate evaluation workflow, not real-world accuracy.</text>
+</svg>

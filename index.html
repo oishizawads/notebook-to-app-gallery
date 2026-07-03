@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Notebook で作った分析を再利用可能な小型アプリへ変換する流れを示す静的ギャラリー。DS 成果物の公開化（Notebook → App）の事例 3 例。">
+  <title>Notebook → App Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Cpath d='M7 21 L13 13 L18 17 L25 9' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">本文へスキップ</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">N→A</span>
+        <span class="brand-text">Notebook → App Gallery</span>
+      </a>
+      <nav class="site-nav" aria-label="セクション">
+        <a href="#gallery">App Gallery</a>
+        <a href="#case-causal">Before / After</a>
+        <a href="#lessons">Lessons</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="main">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Static gallery · 公開用ポートフォリオ</p>
+          <h1>Notebook で作った分析を、<br>再利用可能なアプリへ。</h1>
+          <p class="lead">
+            データサイエンスの成果物は Notebook で終わることが多い。ここでは
+            分析 Notebook を小型インタラクティブアプリへ変換した 3 例を並べ、
+            「Before（Notebook の課題）→ After（アプリ化で改善した点）」を示す。
+            会社案件の Notebook は載せない。データはすべて合成または公開サンプル。
+          </p>
+          <p class="hero-meta">3 examples · static site · build 不要 · GitHub Pages で公開想定</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#gallery">ギャラリーを見る</a>
+            <a class="btn btn-ghost" href="#lessons">教訓を見る</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img src="assets/hero.svg" alt="Notebook からアプリへの変換を示す図" width="1200" height="420" loading="eager">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <h2>App Gallery</h2>
+          <p>3 つの変換例。各カードから詳細ケースへ飛べる。</p>
+        </div>
+        <ul class="gallery-grid" role="list">
+          <li class="gallery-card">
+            <a href="#case-causal">
+              <span class="card-thumb card-thumb-causal" aria-hidden="true">
+                <span class="card-thumb-label">因果推論</span>
+              </span>
+              <span class="card-body">
+                <span class="card-tag">Causal Inference</span>
+                <span class="card-title">Causal Impact Playground</span>
+                <span class="card-desc">前後差と DID の違いを、パラメータを動かして体感できる。</span>
+                <span class="card-cta">詳細を見る →</span>
+              </span>
+            </a>
+          </li>
+          <li class="gallery-card">
+            <a href="#case-forecast">
+              <span class="card-thumb card-thumb-forecast" aria-hidden="true">
+                <span class="card-thumb-label">時系列予測</span>
+              </span>
+              <span class="card-body">
+                <span class="card-tag">Forecasting</span>
+                <span class="card-title">Forecasting Lab</span>
+                <span class="card-desc">Naive / MA / Linear Trend を比較し、MAE・RMSE を出す。</span>
+                <span class="card-cta">詳細を見る →</span>
+              </span>
+            </a>
+          </li>
+          <li class="gallery-card">
+            <a href="#case-rag">
+              <span class="card-thumb card-thumb-rag" aria-hidden="true">
+                <span class="card-thumb-label">RAG 評価</span>
+              </span>
+              <span class="card-body">
+                <span class="card-tag">LLM Eval</span>
+                <span class="card-title">RAG Eval Dashboard</span>
+                <span class="card-desc">TF-IDF と BM25 風の検索を recall@k で比較する。</span>
+                <span class="card-cta">詳細を見る →</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Case 1: Causal Impact -->
+    <section class="section section-alt" id="case-causal">
+      <div class="container">
+        <div class="case-head">
+          <span class="case-index">Case 01</span>
+          <h2>Causal Impact Playground</h2>
+          <p class="case-sub">因果推論・実験設計 · Streamlit · 合成データ</p>
+        </div>
+
+        <figure class="case-shot">
+          <img src="assets/causal-impact.svg" alt="Causal Impact Playground のスクリーンショット：処置群と対照群のトレンド、介入点、DID 推定値" width="1200" height="750" loading="lazy">
+          <figcaption>スクリーンショットはプレースホルダ（差し替え前提）。</figcaption>
+        </figure>
+
+        <div class="case-grid">
+          <div class="case-col case-before">
+            <h3>Before · Notebook の課題</h3>
+            <ul>
+              <li>「前後差」と「DID」の差を 1 セルの数値でしか見せられず、パラメータを変えるたびに上から再実行が必要。</li>
+              <li>平行トレンドが崩れるケースを説明するにはセルを複製し、Notebook が長くなるほど追跡が困難に。</li>
+              <li>真の効果と推定値の比較が手作業で、過剰解釈の注意文が埋もれやすい。</li>
+              <li>seed を変えるたびに結果が変わり、共有相手が同じ数字を再現できない。</li>
+            </ul>
+          </div>
+          <div class="case-col case-after">
+            <h3>After · アプリ化で改善した点</h3>
+            <ul>
+              <li>スライダーで効果・ノイズ・トレンド差を動かし、推定値が即座に更新される。</li>
+              <li>前後差と DID を並べて表示し、過大評価の方向が一目でわかる。</li>
+              <li>95% 信頼区間と「平行トレンドは仮定であり証明ではない」注意文を常時表示。</li>
+              <li>seed を UI に固定し、誰が開いても同じ合成データ・同じ推定値を再現できる。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-links">
+          <a class="btn btn-primary" href="https://github.com/oishizawads/causal-impact-playground" target="_blank" rel="noopener">実装リポジトリを見る ↗</a>
+          <a class="btn btn-ghost" href="#gallery">ギャラリーに戻る ↑</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case 2: Forecasting Lab -->
+    <section class="section" id="case-forecast">
+      <div class="container">
+        <div class="case-head">
+          <span class="case-index">Case 02</span>
+          <h2>Forecasting Lab</h2>
+          <p class="case-sub">時系列予測・評価 · Streamlit · 公開/合成時系列</p>
+        </div>
+
+        <figure class="case-shot">
+          <img src="assets/forecasting-lab.svg" alt="Forecasting Lab のスクリーンショット：観測データ、予測ファン、モデル比較表" width="1200" height="750" loading="lazy">
+          <figcaption>スクリーンショットはプレースホルダ（差し替え前提）。</figcaption>
+        </figure>
+
+        <div class="case-grid">
+          <div class="case-col case-before">
+            <h3>Before · Notebook の課題</h3>
+            <ul>
+              <li>モデルごとにセルを分けると結果表が縦に長くなり、MAE/RMSE の横比較が見えにくい。</li>
+              <li>学習期間と評価期間の切り替えがコード編集要因で、期間を変えるたびに再実行の連鎖が発生。</li>
+              <li>予測区間を描くのに都度 Matplotlib を書き直し、残差プロットも別セルで断片化。</li>
+              <li>欠損値を含むデータで落ちるパスがあり、共有先で想定外のエラーが出た。</li>
+            </ul>
+          </div>
+          <div class="case-col case-after">
+            <h3>After · アプリ化で改善した点</h3>
+            <ul>
+              <li>モデルを複数選択すると、1 つの比較表に MAE・RMSE が並ぶ。</li>
+              <li>学習/評価の境界をスライダーで動かし、予測グラフとファンが即更新。</li>
+              <li>残差プロットと予測区間を標準装備し、アルゴリズム差ではなく判断に時間を使える。</li>
+              <li>欠損を含むデータでも空状態メッセージで落ちず、本運用予測を保証しない旨を明示。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-links">
+          <a class="btn btn-primary" href="https://github.com/oishizawads/forecasting-lab" target="_blank" rel="noopener">実装リポジトリを見る ↗</a>
+          <a class="btn btn-ghost" href="#gallery">ギャラリーに戻る ↑</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case 3: RAG Eval Dashboard -->
+    <section class="section section-alt" id="case-rag">
+      <div class="container">
+        <div class="case-head">
+          <span class="case-index">Case 03</span>
+          <h2>RAG Eval Dashboard</h2>
+          <p class="case-sub">RAG 評価・検索方式比較 · Streamlit · 合成 FAQ</p>
+        </div>
+
+        <figure class="case-shot">
+          <img src="assets/rag-eval.svg" alt="RAG Eval Dashboard のスクリーンショット：質問、ランキングされた根拠、recall@k の指標" width="1200" height="750" loading="lazy">
+          <figcaption>スクリーンショットはプレースホルダ（差し替え前提）。</figcaption>
+        </figure>
+
+        <div class="case-grid">
+          <div class="case-col case-before">
+            <h3>Before · Notebook の課題</h3>
+            <ul>
+              <li>検索方式を変えるたびにセルを複製し、結果の diff が目視依存で順位の変化を追いきれない。</li>
+              <li>Top-K 根拠とスコアが別セルに散らばり、回答の根拠を行で突き合わせるのが煩雑。</li>
+              <li>recall@k などの指標計算が 1 セルに埋まり、評価を見せるよりコードを読ませる状態に。</li>
+              <li>空の質問や未知語で落ち、レビュー時に再現手順を毎回書いていた。</li>
+            </ul>
+          </div>
+          <div class="case-col case-after">
+            <h3>After · アプリ化で改善した点</h3>
+            <ul>
+              <li>質問と検索方式を切り替えると、ランキングと recall@k が同時に更新される。</li>
+              <li>根拠ドキュメントを Top-K で並べ、正解との一致を色分けして一目で判別。</li>
+              <li>TF-IDF と BM25 風スコアの指標を 1 画面に並べ、順位の入れ替わりを定量的に示せる。</li>
+              <li>空入力・未知語でも空状態メッセージで落ちず、合成データである旨を常時明示。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="case-links">
+          <a class="btn btn-primary" href="https://github.com/oishizawads/rag-eval-dashboard" target="_blank" rel="noopener">実装リポジトリを見る ↗</a>
+          <a class="btn btn-ghost" href="#gallery">ギャラリーに戻る ↑</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lessons">
+      <div class="container">
+        <div class="section-head">
+          <h2>Lessons Learned</h2>
+          <p>3 例を通して繰り返し現れた、Notebook → App の共通教訓。</p>
+        </div>
+        <ul class="lessons-grid" role="list">
+          <li class="lesson">
+            <span class="lesson-no">01</span>
+            <h3>比較は並べて、動かして</h3>
+            <p>前後差 vs DID、TF-IDF vs BM25、複数モデル。Notebook では縦に並ぶ比較を、アプリでは横に並べてパラメータを動かすことで判断を速くする。</p>
+          </li>
+          <li class="lesson">
+            <span class="lesson-no">02</span>
+            <h3>前提と制限を常時表示</h3>
+            <p>平行トレンドの仮定、本番予測でないこと、合成データであること。Notebook では埋もれがちな注意文を、アプリでは画面に常駐させる。</p>
+          </li>
+          <li class="lesson">
+            <span class="lesson-no">03</span>
+            <h3>再現性を UI に固定</h3>
+            <p>seed の固定、学習/評価の境界、Top-K。コード編集でしか変えられないものをスライダーにし、共有相手が同じ数字を再現できるようにする。</p>
+          </li>
+          <li class="lesson">
+            <span class="lesson-no">04</span>
+            <h3>空・異常・未知で落とさない</h3>
+            <p>空の質問、未知語、欠損値、極端パラメータ。Notebook では再現手順書が必要だった分岐を、アプリでは空状態メッセージで吸収する。</p>
+          </li>
+          <li class="lesson">
+            <span class="lesson-no">05</span>
+            <h3>UI は薄く、ロジックは分離</h3>
+            <p>Streamlit 画面は src/ の関数を呼ぶだけにし、推定・評価ロジックを pytest で保つ。Notebook の「セル＝状態」を解き、アプリでもテスト可能な形にする。</p>
+          </li>
+          <li class="lesson">
+            <span class="lesson-no">06</span>
+            <h3>公開データだけで成立させる</h3>
+            <p>合成データ・公開時系列のみで技術を示す。会社案件の Notebook は載せず、見せる力と秘密を分けて管理する。</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-note">
+        Notebook → App Gallery · 静的サイト（HTML/CSS・ビルド不要）<br>
+        データはすべて合成または公開サンプル。会社案件の Notebook は含まない。
+      </p>
+      <p class="footer-meta">
+        <a href="#top">ページ先頭へ ↑</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
